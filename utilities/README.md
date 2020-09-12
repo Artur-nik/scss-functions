@@ -17,13 +17,15 @@
         2. return: что возвращать?,
         3. message: Текст ошибки
     )
-    Пример использования:
+
+Пример использования:
     _error-type-scss(
         $error-type (или 'warn', 'error', 'not-error'),
         false,
         'Accepts type of values: #{$type-of-value}'
     ); 
-    Ошибки:
+
+Ошибки:
     При не верном вводе $value, возвращает ошибку.
 ```
 ## Функция _return-type-of-value()
@@ -33,7 +35,7 @@
 по умолчанию = null>
 
 ```scss
-    Принимает значения:
+# Принимает значения:
     _error-type-scss(
         Значение должно быть строкой
         1. value:   'null' - возвращает: null;
