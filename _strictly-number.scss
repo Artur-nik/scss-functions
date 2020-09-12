@@ -1,0 +1,21 @@
+@function _strictly-number($value, $return: booleans, $error-type: 'warn'){
+    @if unitless($value) {
+        @if $return == booleans{
+            @return true;
+        } 
+        @else if $return == number{
+            @return $value;
+        } 
+        @else {
+            @warn '$return takes values: booleans or number';
+            @return null;
+        }
+    }
+    @else {
+        @return _error-type-scss(
+            $error-type,
+            null,
+            'Is not a number: #{$value}'
+        ); 
+    }
+}

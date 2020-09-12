@@ -1,0 +1,33 @@
+@function _type-of($value, $type-of-value, $error-type: 'warn'){
+    $_local_type-of-value:(  
+        number: number,
+        string: string,
+        color: color,
+        list: list,
+        map: map,
+        bool: bool,
+        null: null,
+        function: function,
+        arglist: arglist
+    );
+    //? Проверка $type-of-value на ошибки
+    @if $type-of-value != map-get($_local_type-of-value, $type-of-value) {
+        @return _error-type-scss(
+            $error-type, 
+            false, 
+            'Value is not: #{map-keys($_local_type-of-value)}'
+        );
+    }
+    //? Сравнение $value со мапом $_type-of-value
+    @if type-of($value) == map-get($_local_type-of-value, $type-of-value){
+        @return true;
+    } @else {
+        //? Вывод типа ошибки в консоль:
+        @return _error-type-scss(
+            $error-type,
+            false,
+            'Accepts type of values: #{$type-of-value}'
+        ); 
+    }
+
+}

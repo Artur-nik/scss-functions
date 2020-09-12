@@ -1,0 +1,68 @@
+$_units-valid: false !default;
+@function _units($value, $return: booleans, $error-type: 'warn'){ 
+    $_local_units: (
+        'px': 1px, 
+        'cm': 1cm, 
+        'mm': 1mm, 
+        '%': 1%, 
+        'ch': 1ch, 
+        'pc': 1pc, 
+        'in': 1in, 
+        'em': 1em, 
+        'rem': 1rem, 
+        'pt': 1pt, 
+        'ex': 1ex, 
+        'vw': 1vw, 
+        'vh': 1vh, 
+        'vmin': 1vmin, 
+        'vmax': 1vmax,
+        's': 1s,
+        'ms': 1ms,
+        'deg':1deg
+    );
+    @if type-of($value) == number{
+        @if unit($value) != ''{
+            @if $return == booleans{
+                @each $values-units in map-values($_local_units) {
+                    @if comparable($value, $values-units) == true {
+                        $_units-valid: true !global;
+                    }
+                } 
+                @if $_units-valid == true {
+                    @return true;
+                }
+                @else {
+                    @warn 'Value is required: number and #{map-keys($_local_units)}';
+                    @return '';
+                }
+            } 
+            @else if $return == number{
+                @each $values-units in map-values($_local_units) {
+                    @if comparable($value, $values-units) == true {
+                        $_units-valid: true !global;
+                    }
+                } 
+                @if $_units-valid == true {
+                    @return $value;
+                }
+                @else {
+                    @warn 'Value is required: #{map-keys($_local_units)}';
+                    @return '';
+                }
+            } 
+            @else {
+                @warn '$return takes values: booleans or number';
+                @return null;
+            }
+        }@else {
+            @return null;
+        }
+    } @else {
+        //? Вывод типа ошибки в консоль:
+        @return _error-type-scss(
+            $error-type,
+            false,
+            'Accepts type of values: #{$value}'
+        ); 
+    }
+}

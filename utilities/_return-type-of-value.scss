@@ -1,0 +1,34 @@
+//? Функция которая возвращает: пустой тип значений, логические значения, null
+//* Для чего нужна данная функция? 
+//* Для возвращения типа значений при ошибках в функциях;
+@function _return-type-of-value($value: null) {
+    $_value_type: (
+        //
+        'null': null,
+        //* Пустые типы значений:
+        'list': (),
+        'string': '',
+        //* Логические типы:
+        'false': false,
+        'true': true
+    );
+    @if map-has-key($_value_type, $value) {
+        @return map-get($_value_type, $value);
+    } 
+    @else {
+        @warn "Returning a values type is only possible: #{map-keys($_value_type)}";
+        @return null;
+    }
+}
+@function test($value, $return-type-of-value) {
+    @if type-of($value) == number {
+        @return $value;
+    } @else {
+        @return _return-type-of-value($return-type-of-value);
+    }
+}
+@debug type-of(test(string, 'null')); // null - null
+@debug type-of(test(string, 'list')); // () - list
+@debug type-of(test(string, 'string')); // '' - string
+@debug type-of(test(string, 'false')); // false - boll
+@debug type-of(test(string, 'true')); // true - boll

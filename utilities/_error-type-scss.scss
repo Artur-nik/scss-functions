@@ -1,0 +1,14 @@
+@function _error-type-scss($value, $return, $message) {
+    @if $value == 'warn'{
+        @warn $message;
+        @return $return;
+    } @else if $value == 'error'{
+        @error $message;
+        @return $return;
+    } @else if $value == 'not-error'{
+        @return $return;           
+    } @else {
+        @warn "The _error-type-scss function accepts values: 'warn', 'error', 'not-error'";
+        @return null;
+    }
+}
