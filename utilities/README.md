@@ -1,6 +1,6 @@
 # Утилиты для функций
-[error-type-scss](#функция-_error-type-scss) - Функция вывода типо ошибки в консоль. 
-[return-type-of-value](#функция-_return-type-of-value) - Функция возврата типа значений при ошибках в функциях.
+* [error-type-scss](#функция-_error-type-scss) - Функция вывода типо ошибки в консоль. 
+* [return-type-of-value](#функция-_return-type-of-value) - Функция возврата типа значений при ошибках в функциях.
 
 
 ## Функция _error-type-scss() 
