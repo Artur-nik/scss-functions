@@ -1,9 +1,10 @@
 # Утилиты для функций
-[error-type-scss](#user-content-функция-_error-type-scss)  
+[error-type-scss](#error-type-scss)  
 [return-type-of-value](#return-type-of-value)  
 
-[id]: error-type-scss
+
 ## Функция _error-type-scss()
+[id]: error-type-scss
 Для чего нужна данная функция? <br />
 Выводить вид ошибки в консоль.
 
