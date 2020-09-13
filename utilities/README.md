@@ -3,7 +3,8 @@
 [return-type-of-value](#return-type-of-value)  
 
 
-## Функция _error-type-scss() [id]: return-type-of-value
+## Функция _error-type-scss() 
+[id]: return-type-of-value
 
 Для чего нужна данная функция? <br />
 Выводить вид ошибки в консоль.
