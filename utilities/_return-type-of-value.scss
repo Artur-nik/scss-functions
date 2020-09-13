@@ -20,15 +20,3 @@
         @return null;
     }
 }
-@function test($value, $return-type-of-value) {
-    @if type-of($value) == number {
-        @return $value;
-    } @else {
-        @return _return-type-of-value($return-type-of-value);
-    }
-}
-@debug type-of(test(string, 'null')); // null - null
-@debug type-of(test(string, 'list')); // () - list
-@debug type-of(test(string, 'string')); // '' - string
-@debug type-of(test(string, 'false')); // false - boll
-@debug type-of(test(string, 'true')); // true - boll

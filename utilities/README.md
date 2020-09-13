@@ -1,5 +1,8 @@
 # Утилиты для функций
+[error-type-scss](#error-type-scss)  
+[return-type-of-value](#return-type-of-value)  
 
+[id]: error-type-scss
 ## Функция _error-type-scss()
 Для чего нужна данная функция? <br />
 Выводить вид ошибки в консоль.
@@ -28,6 +31,7 @@
 Ошибки:
     При не верном вводе $value, возвращает ошибку.
 ```
+[id]: return-type-of-value
 ## Функция _return-type-of-value()
 
 Для чего нужна данная функция? <br />
